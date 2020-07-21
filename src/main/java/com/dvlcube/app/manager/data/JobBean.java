@@ -5,16 +5,21 @@ import javax.persistence.Id;
 
 import com.dvlcube.utils.interfaces.MxBean;
 import com.dvlcube.utils.interfaces.Nameable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @since 3 de jun de 2019
  * @author Ulisses Lima
  */
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = "name") })
 public class JobBean implements MxBean<Long>, Nameable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+        @GeneratedValue
 	private Long id;
 	private String name;
 	private Integer max;

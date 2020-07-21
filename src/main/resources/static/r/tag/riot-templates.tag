@@ -81,6 +81,7 @@ this.state = {
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">DVL Manager v<get data-url="/env/version" /></h5>
+                <h4 class="white-text">Jose Vicente Nascimento da Costa Junior</h4>
                 <p class="grey-text text-lighten-4">
                     Manage everything.
                 </p>

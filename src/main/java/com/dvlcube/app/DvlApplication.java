@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.dvlcube.app.manager.data.UserBean;
 import com.dvlcube.app.conf.ApplicationConfig;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @see ApplicationConfig

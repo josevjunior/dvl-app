@@ -12,6 +12,7 @@ import com.dvlcube.app.rest.StatService;
 import com.dvlcube.utils.aspects.stats.StatsAspect;
 import com.dvlcube.utils.interfaces.MxAspect;
 import com.dvlcube.utils.interfaces.MxBean;
+import org.aspectj.lang.annotation.Aspect;
 
 /**
  * Logs all HTTP requests, generating stats about the time it takes to run every
@@ -21,6 +22,7 @@ import com.dvlcube.utils.interfaces.MxBean;
  * @since 13 de fev de 2019
  * @author Ulisses Lima
  */
+@Aspect
 @Configuration
 public class RestAspect implements MxAspect {
 	private Logger log = LogManager.getLogger(this.getClass());
@@ -33,7 +35,7 @@ public class RestAspect implements MxAspect {
 	 */
 	@Around("execution(* com.dvlcube.app.rest.*.*(..))")
 	public Object stats(ProceedingJoinPoint point) throws Throwable {
-		return StatsAspect.timeAround(point);
+                return StatsAspect.timeAround(point);
 	}
 
 	/**
