@@ -20,6 +20,7 @@ import com.dvlcube.app.interfaces.MenuItem;
 import com.dvlcube.utils.aspects.stats.Stat;
 import com.dvlcube.utils.aspects.stats.Stats;
 import com.dvlcube.utils.interfaces.MxService;
+import java.util.Comparator;
 
 /**
  * Application performance stats.
@@ -41,7 +42,16 @@ public class StatService implements MxService {
 	 */
 	@GetMapping
 	public List<Stat> get(@RequestParam Map<String, String> params) {
-		return Stats.values();
+            List<Stat> values = Stats.values();
+            
+            Comparator<Stat> comparator = Comparator
+                    .comparingLong(Stat::getTotal)
+                    .thenComparingDouble(Stat::avg);
+            
+            values.sort(comparator);
+            
+            return values;
+            
 	}
 
 	/**
